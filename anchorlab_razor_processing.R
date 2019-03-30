@@ -178,6 +178,12 @@ activity.table <- data.frame(ID = c(1:dim(Fishing_events)[1]), haul_id = Fishing
 
 write.csv(activity.table, "C:/Work/Razor Clams/Activity.csv", row.names=F)
 
+position.table <- data.frame(ID = c(1:dim(positions)[1]), elec_id = positions$elec_id, time = positions$GPSTime.local., latitude = positions$Latitude,
+                             longitude = positions$Longitude, heading = positions$Heading, speed = positions$Speed, current = positions$Current1)
+
+write.csv(position.table, "C:/Work/Razor Clams/Spatial.csv", row.names=F)
+
+
 library(DBI)
 
 connect_to_access_dbi <- function(db_file_path)  {
